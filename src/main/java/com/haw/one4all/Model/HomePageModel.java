@@ -1,4 +1,4 @@
-package com.haw.one4all.controller;
+package com.haw.one4all.Model;
 
 public class HomePageModel {
 
