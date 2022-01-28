@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ImpressumController {
 
     @GetMapping("/impressum")
-    public String start() {
+    public String show() {
         return "views/impressum";
     }
 }
