@@ -8,9 +8,9 @@
 </head>
 <body>
 <div class="registrationForm">
-    <di>
+    <div>
         <h1 class="d-flex justify-content-center">Registrierung</h1>
-    </di>
+    </div>
     <form th:action="@{/process_register}" th:object="${user}"
           method="post" style="max-width: 600px; margin: 0 auto;">
         <div class="form-group row">
@@ -28,11 +28,11 @@
 <!--        <div class="form-group row">-->
 <!--            <label class="col-form-label col-4">Passwort bestätigen:</label>-->
 <!--            <div class="col-8">-->
-<!--                <input type="password" class="form-control" th:field="*{password}" minlength="8" required/>-->
+<!--                <input type="password" class="form-control" th:field="*{confirmPassword}" minlength="8" required/>-->
 <!--            </div>-->
 <!--        </div>-->
         <div>
-            <button type="submit" class="btn btn-primary">Registrieren</button>
+            <button type="submit" id="submitButton" class="btn btn-primary">Registrieren</button>
         </div>
     </form>
 </div>
