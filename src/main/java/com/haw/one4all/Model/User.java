@@ -10,13 +10,11 @@ import javax.persistence.Table;
 public class User {
 
     @Id
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 45)
     private String username;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 64)
     private String password;
-
-    private String passwordConfirm;
 
     public String getUsername() {
         return username;
@@ -32,13 +30,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
-    }
-
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
     }
 }

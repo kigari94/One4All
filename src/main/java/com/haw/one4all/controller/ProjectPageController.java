@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ProjectPageController {
 
-    @GetMapping("/Projektseite")
+    @GetMapping("/projectPage")
     public String showHome() {
         return "views/projectPage";
     }
