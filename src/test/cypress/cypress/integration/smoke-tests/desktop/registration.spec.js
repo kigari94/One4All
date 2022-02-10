@@ -44,11 +44,38 @@ describe('homepage tests', () => {
             .should('be.visible')
             .type('Test123!')
 
+        cy.get('#confirmPassword')
+            .should('be.visible')
+            .type('Test123!')
+
         cy.get('#submitButton')
             .should('be.visible')
             .click()
 
         cy.url().should('eq', urlLocalHome + "?success")
+
+        cy.get('#successMessage').should('be.visible')
+    })
+
+    it('password confirmation is working ', () => {
+
+        cy.get('#username')
+            .should('be.visible')
+            .type("MusterMax")
+
+        cy.get('#password')
+            .should('be.visible')
+            .type('Test123!')
+
+        cy.get('#confirmPassword')
+            .should('be.visible')
+            .type('Test345!')
+
+        cy.get('#submitButton')
+            .should('be.visible')
+            .click()
+
+        cy.url().should('eq', urlLocalRegister)
 
         cy.get('#successMessage').should('be.visible')
     })
