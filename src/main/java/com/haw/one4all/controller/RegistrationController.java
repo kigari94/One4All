@@ -1,6 +1,7 @@
 package com.haw.one4all.controller;
 
 import com.haw.one4all.Model.User;
+import com.haw.one4all.service.PasswordValidator;
 import com.haw.one4all.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 public class RegistrationController {
 
     @Autowired
     private UserService userService;
+
+    private PasswordValidator passwordValidator;
 
     @ModelAttribute("user")
     public User user() {
@@ -44,6 +49,11 @@ public class RegistrationController {
             if (!user.getPassword().equals(user.getConfirmPassword())) {
                 result.addError(new FieldError("user", "confirmPassword", "Bitte gib dein Passwort erneut an."));
             }
+        }
+        // Validating password requirements
+        if (!passwordValidator.isValid(user.getPassword())) {
+            result.addError(new FieldError("user", "password",
+                    "Das Passwort sollte mindestens eine Zahl, einen Klein- und einen Großbuchstaben enthalten."));
         }
         // Validating field values
         if (result.hasErrors()) {

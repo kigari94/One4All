@@ -2,7 +2,7 @@
 
 describe('homepage tests', () => {
     const urlLocalHome = 'http://localhost:8080/'
-    const urlLocalRegister = 'localhost:8080/register'
+    const urlLocalRegister = 'http://localhost:8080/register'
     beforeEach(() => {
         cy.visit(urlLocalRegister)
     })
@@ -38,7 +38,7 @@ describe('homepage tests', () => {
 
         cy.get('#username')
             .should('be.visible')
-            .type("MusterMax")
+            .type('MusterMax')
 
         cy.get('#password')
             .should('be.visible')
@@ -61,7 +61,7 @@ describe('homepage tests', () => {
 
         cy.get('#username')
             .should('be.visible')
-            .type("MusterMax")
+            .type('MusterMax')
 
         cy.get('#password')
             .should('be.visible')
@@ -77,6 +77,29 @@ describe('homepage tests', () => {
 
         cy.url().should('eq', urlLocalRegister)
 
-        cy.get('#successMessage').should('be.visible')
+        cy.get('#confirmPasswordError').should('be.visible')
+    })
+
+    it('password matches the requirements ', () => {
+
+        cy.get('#username')
+            .should('be.visible')
+            .type('MusterMax')
+
+        cy.get('#password')
+            .should('be.visible')
+            .type('testtest')
+
+        cy.get('#confirmPassword')
+            .should('be.visible')
+            .type('testtest')
+
+        cy.get('#submitButton')
+            .should('be.visible')
+            .click()
+
+        cy.url().should('eq', urlLocalRegister)
+
+        cy.get('#passwordError').should('be.visible')
     })
 })
