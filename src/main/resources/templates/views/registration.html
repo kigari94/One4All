@@ -17,7 +17,7 @@
             <label class="col-form-label col-4">Username:</label>
             <div class="col-8">
                 <input type="text" class="form-control" th:field="*{username}" th:errorClass="is-invalid" minlength="2" maxlength="20" required/>
-                <div th:if="${#fields.hasErrors('username')}">
+                <div id="usernameError" th:if="${#fields.hasErrors('username')}">
                     <div class="alert alert-danger d-flex align-items-center" th:errors="*{username}"></div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <label class="col-form-label col-4">Passwort:</label>
             <div class="col-8">
                 <input type="password" class="form-control" th:field="*{password}" th:errorClass="is-invalid" minlength="8" maxlength="35" required/>
-                <div th:if="${#fields.hasErrors('password')}">
+                <div id="passwordError" th:if="${#fields.hasErrors('password')}">
                     <div class="alert alert-danger d-flex align-items-center" th:errors="*{password}"></div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <label class="col-form-label col-4">Passwort bestätigen:</label>
             <div class="col-8">
                 <input type="password" class="form-control" th:field="*{confirmPassword}" th:errorClass="is-invalid" minlength="8" maxlength="35" required/>
-                <div th:if="${#fields.hasErrors('confirmPassword')}">
+                <div id="confirmPasswordError" th:if="${#fields.hasErrors('confirmPassword')}">
                     <div class="alert alert-danger d-flex align-items-center" th:errors="*{confirmPassword}"></div>
                 </div>
             </div>

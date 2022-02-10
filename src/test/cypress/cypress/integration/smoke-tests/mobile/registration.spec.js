@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
 describe('homepage tests', () => {
-    const urlLocalHome = 'localhost:8080/'
-    const urlLocalRegister = 'localhost:8080/register'
+    const urlLocalHome = 'http://localhost:8080/'
+    const urlLocalRegister = 'http://localhost:8080/register'
     beforeEach(() => {
-        cy.visit(urlLocalHome)
+        cy.visit(urlLocalRegister)
         cy.viewport('iphone-8')
     })
 
@@ -78,6 +78,29 @@ describe('homepage tests', () => {
 
         cy.url().should('eq', urlLocalRegister)
 
-        cy.get('#successMessage').should('be.visible')
+        cy.get('#confirmPasswordError').should('be.visible')
+    })
+
+    it('password matches the requirements ', () => {
+
+        cy.get('#username')
+            .should('be.visible')
+            .type('MusterMax')
+
+        cy.get('#password')
+            .should('be.visible')
+            .type('testtest')
+
+        cy.get('#confirmPassword')
+            .should('be.visible')
+            .type('testtest')
+
+        cy.get('#submitButton')
+            .should('be.visible')
+            .click()
+
+        cy.url().should('eq', urlLocalRegister)
+
+        cy.get('#passwordError').should('be.visible')
     })
 })
