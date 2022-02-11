@@ -25,7 +25,7 @@
     </ul>
 </div>
 <div class="forms">
-    <form action="">
+    <form th:action="@{/createProject}" th:object="${project}">
         <input id="titel" class="projectCreationVar" placeholder="Titel" maxlength="30"><br><br>
         <select name="art" id="art" class="projectCreationVar">
             <option value="noInput">--Art des Projekts--</option>
