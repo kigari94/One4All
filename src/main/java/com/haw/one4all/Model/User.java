@@ -3,6 +3,7 @@ package com.haw.one4all.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +22,9 @@ public class User {
 
     @Transient
     private String confirmPassword;
+
+    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Project> projects;
 
     public String getUsername() {
         return username;
