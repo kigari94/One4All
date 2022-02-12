@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.6.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.6.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One4All</title>
@@ -25,20 +25,37 @@
     </ul>
 </div>
 <div th:if="${param.success}">
-    <div id="successMessage" class="alert alert-success d-flex align-items-center" role="alert">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <div id="successMessage" class="alert alert-success bootstrap d-flex justify-content-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill"/>
+        </svg>
         <div>
             Erfolgreich registriert!
         </div>
     </div>
 </div>
 <div class="imageStage"></div>
-<div class="content">
+<div id="contentContainer" class="m-5">
     <a id="top"></a>
-    <div id="tile" th:each="project: ${listProjects}">
-
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" th:each="project: ${listProjects}">
+            <div id="tile" class="card h-100" style="width: 32rem;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${project.title}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="'erstellt von ' + ${project.user.username}"></h6>
+                    <p class="card-text" th:text="${project.description}"></p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="card-link">Zum Projekt</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <a href="#top">Back to top</a>
+    <div class="float-right">
+        <a href="#top">
+          <span class="upIcon"></span>
+        </a>
+    </div>
 </div>
 <div class="footer">
     <footer>
