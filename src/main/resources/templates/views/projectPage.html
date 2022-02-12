@@ -25,7 +25,7 @@
     </ul>
 </div>
 <div class="forms">
-    <form th:action="@{/createProject}" th:object="${project}">
+    <form th:action="@{/createProject}" th:object="${project}" method="post">
         <input id="title" class="projectCreationVar" th:field="*{title}" th:errorClass="is-invalid" placeholder="Titel"
                maxlength="30"><br><br>
         <div id="titleError" th:if="${#fields.hasErrors('title')}">
@@ -36,7 +36,7 @@
             <option value="noInput">--Art des Projekts--</option>
             <option value="ProjektA">Projekt A</option>
             <option value="ProjektB">Projekt B</option>
-            <option value="ProjektC">Projekt B</option>
+            <option value="ProjektC">Projekt C</option>
             <option value="VS">Virtuelle Systeme</option>
             <option value="CGA">Computergrafik u. Animation</option>
             <option value="SE">Software Engineering</option>

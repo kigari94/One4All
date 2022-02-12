@@ -10,16 +10,16 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long projectId;
 
     @NotEmpty(message = "Bitte gib einen Titel an.")
-    @Size(min = 5, max = 60)
-    @Column(nullable = false, length = 60)
+    @Size(min = 4, max = 32)
+    @Column(nullable = false, length = 32)
     private String title;
 
     @NotEmpty(message = "Bitte gib die Projektart an.")
-    @Size(min = 3, max = 12)
-    @Column(nullable = false, length = 12)
+    @Size(min = 3, max = 36)
+    @Column(nullable = false, length = 36)
     private String projectType;
 
     @NotEmpty(message = "Bitte gib eine Beschreibung an.")
@@ -35,15 +35,16 @@ public class Project {
     @Column(nullable = false, length = 32)
     private String crew;
 
-    @Column(nullable = false, length = 20)
-    private String username;
+    @ManyToOne
+    @JoinColumn(name = "username", nullable=false)
+    private User user;
 
-    public Long getId() {
-        return id;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     public String getTitle() {
@@ -86,11 +87,11 @@ public class Project {
         this.crew = crew;
     }
 
-    public String getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
