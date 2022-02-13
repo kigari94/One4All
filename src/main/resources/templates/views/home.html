@@ -71,7 +71,7 @@
                     <p class="card-text" th:text="${project.description}"></p>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="card-link">Zum Projekt</a>
+                    <a th:href="@{'/projectDetailPage/' + ${project.projectId}}" class="card-link">Zum Projekt</a>
                 </div>
             </div>
         </div>
