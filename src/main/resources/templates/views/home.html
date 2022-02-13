@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
+    <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
     <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.6.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One4All</title>
@@ -34,7 +35,31 @@
         </div>
     </div>
 </div>
-<div class="imageStage"></div>
+<div class="imageStage">
+    <img th:src="@{/images/stage.png}" alt="stage" class="responsive">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown ms-5">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Datum</a></li>
+                        <li><a class="dropdown-item" href="#">Kurs</a></li>
+                        <li><a class="dropdown-item" href="#">Gewerk</a></li>
+                        <li><a class="dropdown-item" href="#">Alphabetisch</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a th:href="@{/projectPage}" class="btn btn-outline-primary me-5" role="button">Projekt anlegen</a>
+            </div>
+        </div>
+    </div>
+</nav>
 <div id="contentContainer" class="m-5">
     <a id="top"></a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -51,9 +76,9 @@
             </div>
         </div>
     </div>
-    <div class="float-right">
+    <div class="float-end">
         <a href="#top">
-          <span class="upIcon"></span>
+            <img th:src="@{/images/up-arrow.svg}" alt="upArrow" class="upIcon"></img>
         </a>
     </div>
 </div>

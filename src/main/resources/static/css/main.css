@@ -200,10 +200,15 @@ button:hover {
 }
 
 .upIcon {
-    background: url("../images/up-arrow.png");
-    height: 20px;
-    width: 20px;
+    height: 35px;
+    width: 35px;
     display: block;
+    filter: invert(0%) sepia(83%) saturate(7481%) hue-rotate(151deg) brightness(98%) contrast(88%);
+}
+
+.responsive {
+    max-width: 100%;
+    height: auto;
 }
 
 p.errorText {
