@@ -44,13 +44,19 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown ms-5">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Filter
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Datum</a></li>
-                        <li><a class="dropdown-item" href="#">Kurs</a></li>
-                        <li><a class="dropdown-item" href="#">Gewerk</a></li>
-                        <li><a class="dropdown-item" href="#">Alphabetisch</a></li>
+                        <li><a class="dropdown-item" th:href="@{/ProjektA}">Projekt A</a></li>
+                        <li><a class="dropdown-item" th:href="@{/ProjektB}">Projekt B</a></li>
+                        <li><a class="dropdown-item" th:href="@{/ProjektC}">Projekt C</a></li>
+                        <li><a class="dropdown-item" th:href="@{/VS}">Virtuelle Systeme</a></li>
+                        <li><a class="dropdown-item" th:href="@{/CGA}">Computergrafik u. Animation</a></li>
+                        <li><a class="dropdown-item" th:href="@{/SE}">Software Engineering</a></li>
+                        <li><a class="dropdown-item" th:href="@{/AVT}">Audio/Video-Technik</a></li>
+                        <li><a class="dropdown-item" th:href="@{/MGD}">Media Game Design</a></li>
+                        <li><a class="dropdown-item" th:href="@{/Dramaturgie}">Dramaturgie</a></li>
+                        <li><a class="dropdown-item" th:href="@{/Wahlpflicht}">Wahlpflicht</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,6 +68,9 @@
 </nav>
 <div id="contentContainer" class="m-5">
     <a id="top"></a>
+    <div class="d-flex justify-content-center" th:if="${listProjects.empty}">
+        <h5>Es sind noch keine Projekte vorhanden.</h5>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col" th:each="project: ${listProjects}">
             <div id="tile" class="card h-100" style="width: 32rem;">
@@ -72,6 +81,7 @@
                 </div>
                 <div class="card-footer">
                     <a th:href="@{'/projectDetailPage/' + ${project.projectId}}" class="card-link">Zum Projekt</a>
+                    <span class="badge bg-secondary float-end" th:text="${project.projectType}"></span>
                 </div>
             </div>
         </div>

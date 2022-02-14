@@ -18,8 +18,8 @@ public class Project {
     private String title;
 
     @NotEmpty(message = "Bitte gib die Projektart an.")
-    @Size(min = 3, max = 36)
-    @Column(nullable = false, length = 36)
+    @Size(min = 1, max = 32)
+    @Column(nullable = false, length = 32)
     private String projectType;
 
     @NotEmpty(message = "Bitte gib eine Beschreibung an.")
