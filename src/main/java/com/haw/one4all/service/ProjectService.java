@@ -13,23 +13,28 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepo;
 
-    // saving Object from type Project
+    // saving object from type project
     public void saveProject(Project project){
         projectRepo.save(project);
     }
 
-    // finding all Objects from type Project
+    // finding all objects from type project
     public List<Project> findProjects(){
         return projectRepo.findAll();
     }
 
-    // finding Object from type Project with specified id
+    // finding object from type project with specified id
     public Project findProjectById(long id){
         Project project = projectRepo.findById(id);
         return project;
     }
 
-    // deleting Object from type Project with specified id
+    // finding all objects from type project with specified projectType
+    public List<Project> findProjectsByType(String projectType){
+        return projectRepo.findAllByProjectType(projectType);
+    }
+
+    // deleting object from type project with specified id
     public void deleteProjectById(long id){
         projectRepo.deleteById(id);
     }
