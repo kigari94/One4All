@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
+    <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One4All</title>
+</head>
+<body>
+<div class="menuBar">
+    <ul>
+        <li class="active"><a href="/"><i class="fas fa-home"></i>Home</a></li>
+        <li><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+        <li><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
+        <li><a href="#"><i class="fas fa-users"></i>Über uns</a>
+            <div class="subMenu-aboutUs">
+                <ul>
+                    <li><a href="#">Vision</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
+    </ul>
+</div>
+<div id="contentContainer" class="container col-xxl-8 px-4 py-5">
+    <div id="tile" class="row-cols-1">
+        <h1 class="display-5 fw-bold lh-1 mb-3" th:text="${project.title}"></h1>
+    </div>
+    <div id="creator" class="row-cols-1">
+        <h3 class="text-muted" th:text="'erstellt von ' + ${project.user.username}"></h3>
+    </div>
+    <div id="description" class="row-cols-1">
+        <p class="lead" th:text="${project.description}"></p>
+    </div>
+    <div id="projectType" class="row d-flex align items-start">
+        <h6 class="col-3">Projektart:</h6>
+        <div class="col-2" th:text="${project.projectType}"></div>
+    </div>
+    <div id="crew" class="row">
+        <h6 class="col-3">Gesuchtes Gewerk:</h6>
+        <div class="col-2" th:text="${project.crew}"></div>
+    </div>
+    <div id="contact" class="row">
+        <h6 class="col-3">Kontakt:</h6>
+        <div class="col-2" th:text="${project.email}"></div>
+    </div>
+    <div id="delete" class="row d-flex justify-content-center m-4">
+        <div class="col-3">
+            <button type="button" class="btn btn-danger">Projekt löschen</button>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <footer>
+        <p><a id="impressum" th:href="@{/impressum}">Impressum</a></p>
+        <a href="/">
+            <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png}" alt="One4All">
+        </a>
+    </footer>
+</div>
+</body>
+</html>
