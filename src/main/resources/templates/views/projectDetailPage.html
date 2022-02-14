@@ -47,9 +47,9 @@
         <h6 class="col-3">Kontakt:</h6>
         <div class="col-2" th:text="${project.email}"></div>
     </div>
-    <div id="delete" class="row d-flex justify-content-center m-4">
+    <div id="delete" class="row d-flex justify-content-center m-4" th:if="${project.user.username == #request.remoteUser}">
         <div class="col-3">
-            <button type="button" class="btn btn-danger">Projekt löschen</button>
+            <a th:href="@{'/projectDetailPage/delete/' + ${project.projectId}}" type="button" class="btn btn-danger btn-lg">Projekt löschen</a>
         </div>
     </div>
 </div>
