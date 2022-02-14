@@ -28,4 +28,9 @@ public class ProjectService {
         Project project = projectRepo.findById(id);
         return project;
     }
+
+    // deleting Object from type Project with specified id
+    public void deleteProjectById(long id){
+        projectRepo.deleteById(id);
+    }
 }
