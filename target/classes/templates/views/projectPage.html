@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.6.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projektseite</title>
+</head>
+<body>
+<div class="menuBar">
+    <ul>
+        <li class="active"><a href="/"><i class="fas fa-home"></i>Home</a></li>
+        <li><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+        <li><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
+        <li><a href="#"><i class="fas fa-users"></i>Über uns</a>
+            <div class="subMenu-aboutUs">
+                <ul>
+                    <li><a href="#">Vision</a></li>
+                    <li><a href="#">Team</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
+    </ul>
+</div>
+<div class="forms">
+    <form action="">
+        <input id="titel" class="projectCreationVar" placeholder="Titel" maxlength="30"><br><br>
+        <select name="art" id="art" class="projectCreationVar">
+            <option value="noInput">--Art des Projekts--</option>
+            <option value="ProjektA">Projekt A</option>
+            <option value="ProjektB">Projekt B</option>
+            <option value="ProjektC">Projekt B</option>
+            <option value="VS">Virtuelle Systeme</option>
+            <option value="CGA">Computergrafik u. Animation</option>
+            <option value="SE">Software Engineering</option>
+            <option value="AVT">Audio/Video-Technik</option>
+            <option value="MGD">Media Game Design</option>
+            <option value="Dramaturgie">Dramaturgie</option>
+            <option value="Wahlpflicht">Wahlpflicht</option>
+        </select><br><br>
+        <textarea rows="10" cols="60" id="beschreibung" class="projectCreationVar" placeholder="Projektbeschreibung" maxlength="300"></textarea><br><br>
+        <input id="kontaktinfo" class="projectCreationVar" placeholder="E-Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="100"  title="Bitte geben Sie eine gültige E-Mail-Adresse ein."><br><br>
+        <input id="gewerk" class="projectCreationVar" placeholder="Gesuchtes Gewerk" maxlength="100"><br><br>
+        <input type="submit" id="submitProject" value="Projekt erstellen">
+    </form>
+</div>
+<div class="mainNav"></div>
+<div class="imageStage"></div>
+<div class="backToTop"></div>
+<div class="footer">
+    <footer>
+        <p><a id="impressum" href="/impressum">Impressum</a></p>
+        <a href="/">
+            <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png}" alt="One4All">
+        </a>
+    </footer>
+</div>
+</body>
+</html>

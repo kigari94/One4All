@@ -2,15 +2,19 @@ package com.haw.one4all.controller;
 
 import com.haw.one4all.Model.User;
 import com.haw.one4all.repository.UserRepository;
+import com.haw.one4all.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 @Controller
 public class RegistrationController {
@@ -33,6 +37,7 @@ public class RegistrationController {
 
         return "redirect:/";
     }
+
 
     @PostMapping("/process_register")
     public String processRegister(User user) {

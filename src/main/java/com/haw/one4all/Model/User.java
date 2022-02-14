@@ -9,6 +9,7 @@ import javax.persistence.Table;
 @Table(name = "users")
 public class User {
 
+
     @Id
     @Column(nullable = false, unique = true, length = 45)
     private String username;
