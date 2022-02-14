@@ -8,43 +8,57 @@
     <title>Registrierung</title>
 </head>
 <body>
-<div id="registrationForm" class="container-md">
-    <div>
-        <h1 class="d-flex justify-content-center">Registrierung</h1>
-    </div>
-    <form th:action="@{/register}" th:object="${user}"
-          method="post" style="max-width: 600px; margin: 10px auto;">
-        <div class="form-group row">
-            <label class="col-form-label col-4">Username:</label>
-            <div class="col-8">
-                <input type="text" class="form-control" th:field="*{username}" th:errorClass="is-invalid" minlength="2" maxlength="20" required/>
-                <div id="usernameError" th:if="${#fields.hasErrors('username')}">
-                    <div class="alert alert-danger d-flex align-items-center" th:errors="*{username}"></div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-form-label col-4">Passwort:</label>
-            <div class="col-8">
-                <input type="password" class="form-control" th:field="*{password}" th:errorClass="is-invalid" minlength="8" maxlength="35" required/>
-                <div id="passwordError" th:if="${#fields.hasErrors('password')}">
-                    <div class="alert alert-danger d-flex align-items-center" th:errors="*{password}"></div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-form-label col-4">Passwort bestätigen:</label>
-            <div class="col-8">
-                <input type="password" class="form-control" th:field="*{confirmPassword}" th:errorClass="is-invalid" minlength="8" maxlength="35" required/>
-                <div id="confirmPasswordError" th:if="${#fields.hasErrors('confirmPassword')}">
-                    <div class="alert alert-danger d-flex align-items-center" th:errors="*{confirmPassword}"></div>
-                </div>
-            </div>
-        </div>
+<div class="d-flex align-items-center vh-100">
+    <div id="registrationForm" class="container-md">
         <div>
-            <button type="submit" id="submitButton" class="btn btn-primary">Registrieren</button>
+            <h1 class="h2 mb-3 fw-normal d-flex justify-content-center">Registrierung</h1>
         </div>
-    </form>
+        <form th:action="@{/register}" th:object="${user}"
+              method="post" style="max-width: 600px; margin: 10px auto;">
+            <div class="form-group row justify-content-md-center">
+                <div class="col-8 ps-1 form-floating">
+                    <input type="text" class="form-control" id="floatingUsername" placeholder="Username"
+                           th:field="*{username}" th:errorClass="is-invalid" minlength="2" maxlength="20"/>
+                    <label for="floatingUsername">Username:</label>
+                    <div id="usernameError" th:if="${#fields.hasErrors('username')}">
+                        <div class="alert alert-danger d-flex align-items-center" th:errors="*{username}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row justify-content-md-center">
+                <div class="col-8 ps-1 form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Passwort"
+                           th:field="*{password}" th:errorClass="is-invalid" minlength="8" maxlength="35"/>
+                    <label for="floatingPassword">Passwort:</label>
+                    <div id="passwordError" th:if="${#fields.hasErrors('password')}">
+                        <div class="alert alert-danger d-flex align-items-center" th:errors="*{password}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row justify-content-md-center">
+                <div class="col-8 ps-1 form-floating">
+                    <input type="password" class="form-control" id="floatingConfirm" placeholder="Passwort bestätigen"
+                           th:field="*{confirmPassword}" th:errorClass="is-invalid" minlength="8" maxlength="35"/>
+                    <label for="floatingConfirm">Passwort bestätigen:</label>
+                    <div id="confirmPasswordError" th:if="${#fields.hasErrors('confirmPassword')}">
+                        <div class="alert alert-danger d-flex align-items-center" th:errors="*{confirmPassword}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row justify-content-md-center mt-2">
+                <div class="col-8 ps-1">
+                    <button type="submit" id="submitButton" class="col-1 w-100 btn btn-lg btn-primary">Registrieren
+                    </button>
+                </div>
+            </div>
+            <div class="form-group row justify-content-md-center mt-2">
+                <div class="col-8">
+                    <p>Account bereits vorhanden? <a th:href="@{/login}">Hier</a> geht es zum Login.</p>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
