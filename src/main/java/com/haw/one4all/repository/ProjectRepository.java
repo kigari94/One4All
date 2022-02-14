@@ -2,7 +2,6 @@ package com.haw.one4all.repository;
 
 import com.haw.one4all.Model.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
