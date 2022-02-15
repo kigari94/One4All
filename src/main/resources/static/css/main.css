@@ -81,6 +81,14 @@ body {
 /*    margin-left: 10px;*/
 /*}*/
 
+.hoverDiv {
+    background: #fff;
+}
+
+.hoverDiv:hover {
+    background: #f5f5f5;
+}
+
 .footer {
     position: relative;
     margin: 0px 0px 0px 0px;
