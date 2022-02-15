@@ -27,11 +27,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public ProjectDetailsService projectDetailsService() {
-        return new ProjectService();
-    }
-
-    @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -53,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                //.antMatchers("/projectPage**").authenticated()
+                .antMatchers("/projectPage**").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

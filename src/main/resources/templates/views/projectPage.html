@@ -28,7 +28,7 @@
 <div class="forms">
     <form th:action="@{/createProject}" th:object="${project}" method="post">
         <input id="title" class="projectCreationVar" th:field="*{title}" th:errorClass="is-invalid" placeholder="Titel"
-               maxlength="30"><br><br>
+               maxlength="30"><br>
         <div id="titleError" th:if="${#fields.hasErrors('title')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{title}"></div>
         </div>
@@ -46,32 +46,34 @@
             <option value="MGD">Media Game Design</option>
             <option value="Dramaturgie">Dramaturgie</option>
             <option value="Wahlpflicht">Wahlpflicht</option>
-        </select><br><br>
+        </select><br>
         <div id="projectTypeError" th:if="${#fields.hasErrors('projectType')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{projectType}"></div>
         </div>
         <textarea rows="10" cols="60" id="description" class="projectCreationVar" th:field="*{description}"
-                  th:errorClass="is-invalid" placeholder="Projektbeschreibung" maxlength="300"></textarea><br><br>
+                  th:errorClass="is-invalid" placeholder="Projektbeschreibung" maxlength="300"></textarea><br>
         <div id="descriptionError" th:if="${#fields.hasErrors('description')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{description}"></div>
         </div>
         <input id="kontaktinfo" class="projectCreationVar" placeholder="E-Mail" th:field="*{email}"
                th:errorClass="is-invalid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="100"
-               title="Bitte geben Sie eine gültige E-Mail-Adresse ein."><br><br>
+               title="Bitte geben Sie eine gültige E-Mail-Adresse ein."><br>
         <div id="emailError" th:if="${#fields.hasErrors('email')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{email}"></div>
         </div>
         <input id="crew" class="projectCreationVar" placeholder="Gesuchtes Gewerk" th:field="*{crew}"
-               th:errorClass="is-invalid" maxlength="100"><br><br>
+               th:errorClass="is-invalid" maxlength="100"><br>
         <input type="submit" id="submitProject" value="Projekt erstellen">
+
     </form>
 </div>
-<footer>
-    <p><a id="impressum" href="/impressum">Impressum</a></p>
-    <a href="/">
-        <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png}" alt="One4All">
-    </a>
-</footer>
+<div class="footer">
+    <footer>
+        <p><a id="impressum" href="/impressum">Impressum</a></p>
+        <a href="/">
+            <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png}" alt="One4All">
+        </a>
+    </footer>
 </div>
 </body>
 </html>
