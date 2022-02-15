@@ -64,7 +64,9 @@
         <input id="crew" class="projectCreationVar" placeholder="Gesuchtes Gewerk" th:field="*{crew}"
                th:errorClass="is-invalid" maxlength="100"><br>
         <input type="submit" id="submitProject" value="Projekt erstellen">
-
+        <div id="crewError" th:if="${#fields.hasErrors('crew')}">
+            <div class="alert alert-danger d-flex align-items-center" th:errors="*{crew}"></div>
+        </div>
     </form>
 </div>
 <div class="footer">
