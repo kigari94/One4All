@@ -166,18 +166,22 @@ button:hover {
 }
 
 .forms {
-    position: relative;
-    margin: 100px 60px 0px 60px;
+    margin: 45px 60px 50px 57px;
+    width: fit-content;
+    /*margin: 100px 60px 0px 60px;*/
     z-index: 2;
     /*height: 63%;*/
-    border-left: 2px solid rgba(35, 44, 59, .65);
+    border: 2px solid rgba(35, 44, 59, .65);
     border-radius: 15px;
     background: rgba(100, 149, 237, .8);
-    background: linear-gradient(90deg, rgba(100, 149, 237, .85) 30%, rgba(195, 209, 235, 0) 100%);
+    /*background: linear-gradient(90deg, rgba(100, 149, 237, .85) 30%, rgba(195, 209, 235, 0) 100%);*/
     padding: 20px;
 }
 
 .projectCreationVar {
+    display: block;
+    margin: auto;
+    width: 80%;
     font-family: Arial, sans-serif;
     padding: 6px 10px;
     border: 2px solid rgba(35, 44, 59, .65);
@@ -193,13 +197,16 @@ button:hover {
 }
 
 #submitProject {
+    background-color: rgb(187, 240, 188);
     font-family: Arial, sans-serif;
     padding: 3px 10px;
     border: 2px solid rgba(35, 44, 59, .65);
     border-radius: 4px;
+    margin-left: 52px;
 }
 
 #submitProject:hover {
+    background-color: rgb(116, 227, 118);
     border: 2px solid rgba(35, 44, 59, .85);
 }
 
