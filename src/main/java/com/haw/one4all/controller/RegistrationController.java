@@ -43,6 +43,13 @@ public class RegistrationController {
     @PostMapping("/register")
     public String processRegister(@Valid User user, BindingResult result) {
 
+        // Check duplicate Username before registration
+        if (user.getUsername() != null) {
+            if (userService.findUserByUsername(user.getUsername())) {
+                result.addError(new FieldError("user", "username", "Der Username wird bereits verwendet. Bitte gib einen neuen Usernamen ein."));
+            }
+        }
+
         // Validating password match
         if (user.getPassword() != null && user.getConfirmPassword() != null) {
             if (!user.getPassword().equals(user.getConfirmPassword())) {
