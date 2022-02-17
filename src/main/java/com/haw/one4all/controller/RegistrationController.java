@@ -42,6 +42,7 @@ public class RegistrationController {
 
     @PostMapping("/register")
     public String processRegister(@Valid User user, BindingResult result) {
+
         // Validating password match
         if (user.getPassword() != null && user.getConfirmPassword() != null) {
             if (!user.getPassword().equals(user.getConfirmPassword())) {
