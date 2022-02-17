@@ -210,6 +210,20 @@ button:hover {
     border: 2px solid rgba(35, 44, 59, .85);
 }
 
+#dontSubmitProject {
+    background-color: rgb(237, 168, 168);
+    font-family: Arial, sans-serif;
+    padding: 3px 10px;
+    border: 2px solid rgba(35, 44, 59, .65);
+    border-radius: 4px;
+    margin-left: 137px;
+}
+
+#dontSubmitProject:hover {
+    background-color: rgb(224, 81, 81);
+    border: 2px solid rgba(35, 44, 59, .85);
+}
+
 #beschreibung {
     font-family: Arial, sans-serif;
 }
