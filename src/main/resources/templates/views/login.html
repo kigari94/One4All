@@ -11,21 +11,23 @@
 
 <div class="login-form">
     <div class="container-fluid">
-        <form method="post" action="/login" th:object="${user}" >
-            <label for="uname"><b>Username</b></label>
-            <input type="text" class="mb-3" placeholder="Enter Username" name="uname" required th:field="*{username}">
+        <form method="post" th:action="@{/login}">
+            <label for="username"><b>Username</b></label>
+            <input type="text" class="mb-3" placeholder="Username eingeben" name="username" id="username" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" class="mb-3" placeholder="Enter Password" name="psw" required th:field="*{password}" >
-
-            <button class="btn btn-info mt-3" type="submit">Login</button>
+            <label for="password"><b>Password</b></label>
+            <input type="password" class="mb-3" placeholder="Passwort eingeben" name="password" id="password" required>
+            <div id="passwordError" th:if="${param.error}">
+                <div class="alert alert-danger d-flex align-items-center">Ungültige Anmeldedaten.</div>
+            </div>
+            <button class="btn btn-info mt-3" type="submit">Anmelden</button>
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
             
             <div class="container">
-                <button type="button" onclick="window.location.href = 'http://localhost:8080/';" class="cancelbtn btn-outline-info">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
+                <button type="button" onclick="window.location.href = 'http://localhost:8080/';" class="cancelbtn btn-outline-info">Abbrechen</button>
+
             </div>
         </form>
     </div>

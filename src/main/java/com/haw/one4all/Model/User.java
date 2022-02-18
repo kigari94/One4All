@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
-    @NotEmpty(message = "Bitte gib einen gültigen usernamen an.")
+    @NotEmpty(message = "Bitte gib einen gültigen Usernamen an.")
     @Size(min = 2, max = 20)
     @Column(nullable = false, unique = true, length = 45)
     private String username;
@@ -19,35 +19,12 @@ public class User {
     @Column(nullable = false, length = 64)
     private String password;
 
-
-    @Column(name="id")
-    private Long id;
-    @Column(name="role")
-    private String role;
-
     @Transient
     private String confirmPassword;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -72,15 +49,5 @@ public class User {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-
 
 }

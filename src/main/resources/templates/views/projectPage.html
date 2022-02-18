@@ -72,8 +72,6 @@
         <div th:text = "${session.sessionId}" > test</div>
 
 
-        *{sessionId}
-
         <input id="crew" class="projectCreationVar" placeholder="Gesuchtes Gewerk" th:field="*{crew}"
                th:errorClass="is-invalid" maxlength="100"><br>
         <div id="crewError" th:if="${#fields.hasErrors('crew')}">
