@@ -25,8 +25,9 @@
 
         <ul class="menu">
             <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
-            <li><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-            <li><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
+            <li th:if="${session.isEmpty()}"><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+            <li th:if="${session.isEmpty()}"><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
+            <li th:if="${!session.isEmpty()}"><a id="logout" href="/logout" ><i class="fas fa-sign-out-alt"></i>Log out</a></li>
             <li><a href="#"><i class="fas fa-users"></i>Über uns</a></li>
             <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
         </ul>
@@ -68,6 +69,9 @@
         <div id="emailError" th:if="${#fields.hasErrors('email')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{email}"></div>
         </div>
+        <div th:text = "${session.sessionId}" > test</div>
+
+
         <input id="crew" class="projectCreationVar" placeholder="Gesuchtes Gewerk" th:field="*{crew}"
                th:errorClass="is-invalid" maxlength="100"><br>
         <div id="crewError" th:if="${#fields.hasErrors('crew')}">
