@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -32,6 +33,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -49,15 +53,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/projectPage**").authenticated()
+                .antMatchers("/projectPage").authenticated()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
-//                    .loginPage("/login")
+                    .formLogin()
+                    .loginPage("/login")
                     .usernameParameter("username")
-                    .defaultSuccessUrl("/?success")
+                    //.defaultSuccessUrl("/projectPage")
+                    .defaultSuccessUrl("/projectPage")
                     .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                    .logout()
+                    .logoutSuccessUrl("/")
+                    .deleteCookies("JSESSIONID")
+                    .permitAll()
+                .and()
+                    .csrf()
+                    .disable();
     }
+
 }
