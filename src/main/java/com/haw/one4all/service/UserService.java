@@ -24,6 +24,13 @@ public class  UserService implements UserDetailsService {
         userRepo.save(user);
     }
 
+    public Boolean findUserByUsername(String username) {
+        User user = userRepo.findByUsername(username);
+        if (user == null) {
+            return  false;
+        }
+        return true;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
