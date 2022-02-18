@@ -38,4 +38,10 @@ public class ProjectService {
     public void deleteProjectById(long id){
         projectRepo.deleteById(id);
     }
+
+
+    public void addUserFavorite(Project project, String username){
+        project.addUsersFavorite(username);
+        projectRepo.save(project);
+    }
 }

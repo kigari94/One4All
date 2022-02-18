@@ -1,5 +1,6 @@
 package com.haw.one4all.service;
 
+import com.haw.one4all.Model.Project;
 import com.haw.one4all.Model.User;
 import com.haw.one4all.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,19 @@ public class UserService implements UserDetailsService {
 
         userRepo.save(user);
     }
+
+    /*
+    public void saveFavorite(User user, String favorite){
+//        user.setFavoriteProjects(favorite);
+        userRepo.save(user);
+    }*/
+
+    /*
+    public User findUserByUsername(String username){
+        System.out.println("pass________________: ");
+        User user = userRepo.findByUsername(username);
+        return user;
+    }*/
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

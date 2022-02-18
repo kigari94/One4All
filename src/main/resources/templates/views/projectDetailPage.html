@@ -29,6 +29,9 @@
     <div id="tile" class="row-cols-1">
         <h1 class="display-5 fw-bold lh-1 mb-3" th:text="${project.title}"></h1>
     </div>
+    <a th:href="@{'/projectDetailPage/' + 'favorite/' + ${project.projectId}}">
+        <image class="fav not_clicked" th:src="@{/images/favorite_not_clicked.png}"/>
+    </a>
     <div id="creator" class="row-cols-1">
         <h3 class="text-muted" th:text="'erstellt von ' + ${project.user.username}"></h3>
     </div>

@@ -292,3 +292,8 @@ span.psw {
         width: 100%;
     }
 }
+
+.fav {
+    width: 30px;
+    float: right;
+}

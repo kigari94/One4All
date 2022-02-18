@@ -3,6 +3,8 @@ package com.haw.one4all.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +21,10 @@ public class User {
     @Size(min = 8, max = 60)
     @Column(nullable = false, length = 64)
     private String password;
+
+    /*
+    @Column(nullable = true, unique = false)
+    private ArrayList<String> favoriteProjects = new ArrayList<String>();*/
 
     @Transient
     private String confirmPassword;
@@ -49,4 +55,5 @@ public class User {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
 }
