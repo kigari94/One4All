@@ -16,11 +16,13 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepo;
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
+        // Encrypting the user password given
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
+        // Save user in database
         userRepo.save(user);
     }
 

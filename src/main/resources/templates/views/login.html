@@ -8,7 +8,6 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
 <div class="login-form">
     <div class="container-fluid">
         <form method="post" th:action="@{/login}">
@@ -24,10 +23,10 @@
             <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
-            
             <div class="container">
-                <button type="button" onclick="window.location.href = 'http://localhost:8080/';" class="cancelbtn btn-outline-info">Abbrechen</button>
-
+                <button type="button" onclick="window.location.href = 'http://localhost:8080/';"
+                        class="cancelbtn btn-outline-info">Abbrechen
+                </button>
             </div>
         </form>
     </div>

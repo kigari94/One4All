@@ -22,14 +22,14 @@ public class ProjectDetailPageController {
     }
 
     @GetMapping("/projectDetailPage/{id}")
-    public String showProjectDetailPage(@PathVariable("id") int projectId, Model model){
+    public String showProjectDetailPage(@PathVariable("id") int projectId, Model model) {
         Project project = projectService.findProjectById(projectId);
         model.addAttribute("project", project);
         return "views/projectDetailPage";
     }
 
     @GetMapping("/projectDetailPage/delete/{id}")
-    public String deleteProject(@PathVariable("id") int projectId){
+    public String deleteProject(@PathVariable("id") int projectId) {
         // Getting user data
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String authUser = SecurityContextHolder.getContext().getAuthentication().getName();
