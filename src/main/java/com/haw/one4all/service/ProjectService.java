@@ -24,6 +24,17 @@ public class ProjectService {
         return projectRepo.findAll();
     }
 
+    // find all projects a user marked as favorite
+    public ArrayList<Project> findFavoriteProjects(String username){
+        ArrayList<Project> favProjects = new ArrayList<>();
+        for(int i=0; i < findProjects().size(); i++){
+            if (findProjects().get(i).getUsersFavorite().contains(username)){
+                favProjects.add(findProjects().get(i));
+            }
+        }
+        return favProjects;
+    }
+
     // finding object from type project with specified id
     public Project findProjectById(long id){
         Project project = projectRepo.findById(id);
