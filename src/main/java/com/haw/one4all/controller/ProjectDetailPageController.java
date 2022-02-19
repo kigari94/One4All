@@ -1,17 +1,13 @@
 package com.haw.one4all.controller;
 
 import com.haw.one4all.Model.Project;
-import com.haw.one4all.repository.UserRepository;
 import com.haw.one4all.service.ProjectService;
-import com.haw.one4all.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -19,8 +15,6 @@ public class ProjectDetailPageController {
 
     @Autowired
     private ProjectService projectService;
-    private UserService userService;
-    private UserRepository userRepo;
 
     @ModelAttribute("project")
     public Project project() {
@@ -34,22 +28,22 @@ public class ProjectDetailPageController {
         return "views/projectDetailPage";
     }
 
-// add a project to favorites
+    // add a project to favorites
     @GetMapping("/projectDetailPage/favorite/{id}")
-    public String favoriteProject(@PathVariable("id") int projectId){
+    public String favoriteProject(@PathVariable("id") int projectId) {
 
     // Getting user data
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     String authUser = SecurityContextHolder.getContext().getAuthentication().getName();
     Project project = projectService.findProjectById(projectId);
 
-    // display an error banner if a not logged in user tries to use the "favorite feature"
+        // display an error banner if a not logged in user tries to use the "favorite feature"
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             return "redirect:/projectDetailPage/{id}/?failure";
     }
 
-    // add user to list of favorites IF they are NOT already in the list
-        if (!projectService.isFavorized(project, authUser)){
+        // add user to list of favorites IF they are NOT already in the list
+        if (!projectService.isFavorized(project, authUser)) {
             projectService.addUserFavorite(project, authUser);
         } else {
             // remove the user IF he IS already in the list
@@ -59,7 +53,7 @@ public class ProjectDetailPageController {
         return "redirect:/projectDetailPage/{id}";
     }
 
-// delete a project
+    // delete a project
     @GetMapping("/projectDetailPage/delete/{id}")
     public String deleteProject(@PathVariable("id") int projectId) {
         // Getting user data

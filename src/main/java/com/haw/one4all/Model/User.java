@@ -3,8 +3,6 @@ package com.haw.one4all.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,16 +19,11 @@ public class User {
     @Column(nullable = false, length = 64)
     private String password;
 
-    /*
-    @Column(nullable = true, unique = false)
-    private ArrayList<String> favoriteProjects = new ArrayList<String>();*/
-
     @Transient
     private String confirmPassword;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects;
-
 
     public String getUsername() {
         return username;
@@ -51,9 +44,4 @@ public class User {
     public String getConfirmPassword() {
         return confirmPassword;
     }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
 }

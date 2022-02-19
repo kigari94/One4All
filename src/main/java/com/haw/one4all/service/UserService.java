@@ -1,6 +1,5 @@
 package com.haw.one4all.service;
 
-import com.haw.one4all.Model.Project;
 import com.haw.one4all.Model.User;
 import com.haw.one4all.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

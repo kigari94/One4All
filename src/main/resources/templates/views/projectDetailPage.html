@@ -55,12 +55,12 @@
     </div>
     <div th:if="${!project.usersFavorite.contains(#request.remoteUser)}">
         <a th:href="@{'/projectDetailPage/' + 'favorite/' + ${project.projectId}}">
-            <image class="fav" th:src="@{/images/favorite_not_clicked.png}"/>
+            <image class="fav" th:src="@{/images/favorite_not_clicked.png}"></image>
         </a>
     </div>
     <div th:if="${project.usersFavorite.contains(#request.remoteUser)}">
         <a th:href="@{'/projectDetailPage/' + 'favorite/' + ${project.projectId}}">
-            <image class="fav" th:src="@{/images/favorite__clicked.png}"/>
+            <image class="fav" th:src="@{/images/favorite__clicked.png}"></image>
         </a>
     </div>
     <div id="creator" class="row-cols-1">
