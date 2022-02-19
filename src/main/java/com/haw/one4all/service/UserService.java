@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UserService implements UserDetailsService {
 
@@ -23,12 +24,21 @@ public class UserService implements UserDetailsService {
         userRepo.save(user);
     }
 
+    public Boolean findUserByUsername(String username) {
+        User user = userRepo.findByUsername(username);
+        if (user == null) {
+            return  false;
+        }
+        return true;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepo.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
         }
+
         return new CustomUserDetails(user);
     }
 }

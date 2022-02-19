@@ -223,15 +223,15 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
-    background-color: rgb(70, 130, 180);
-    color: blue;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
+/*button {*/
+/*    background-color: rgb(70, 130, 180);*/
+/*    color: blue;*/
+/*    padding: 14px 20px;*/
+/*    margin: 8px 0;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    width: 100%;*/
+/*}*/
 
 /* Add a hover effect for buttons */
 button:hover {
