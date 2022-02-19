@@ -15,12 +15,12 @@ public class ProjectService {
     private ProjectRepository projectRepo;
 
     // saving object from type project
-    public void saveProject(Project project){
+    public void saveProject(Project project) {
         projectRepo.save(project);
     }
 
     // finding all objects from type project
-    public List<Project> findProjects(){
+    public List<Project> findProjects() {
         return projectRepo.findAll();
     }
 
@@ -36,18 +36,17 @@ public class ProjectService {
     }
 
     // finding object from type project with specified id
-    public Project findProjectById(long id){
-        Project project = projectRepo.findById(id);
-        return project;
+    public Project findProjectById(long id) {
+        return projectRepo.findById(id);
     }
 
     // finding all objects from type project with specified projectType
-    public List<Project> findProjectsByType(String projectType){
+    public List<Project> findProjectsByType(String projectType) {
         return projectRepo.findAllByProjectType(projectType);
     }
 
     // deleting object from type project with specified id
-    public void deleteProjectById(long id){
+    public void deleteProjectById(long id) {
         projectRepo.deleteById(id);
     }
 

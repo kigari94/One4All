@@ -10,9 +10,8 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
-    @NotEmpty(message ="Bitte gib einen gültigen Usernamen an.")
+    @NotEmpty(message = "Bitte gib einen gültigen Usernamen an.")
     @Size(min = 2, max = 20)
     @Column(nullable = false, unique = true, length = 45)
     private String username;
@@ -29,8 +28,9 @@ public class User {
     @Transient
     private String confirmPassword;
 
-    @OneToMany(mappedBy = "user", cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects;
+
 
     public String getUsername() {
         return username;

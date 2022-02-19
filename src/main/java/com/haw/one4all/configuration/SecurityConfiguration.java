@@ -12,14 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
     @Autowired
-    private DataSource dataSource;
+    private UserDetailsService userDetailsService;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -41,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
@@ -51,12 +48,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/projectPage**").authenticated()
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
-//                    .loginPage("/login")
+                    .formLogin()
+                    .loginPage("/login")
                     .usernameParameter("username")
-                    .defaultSuccessUrl("/?success")
+                    .defaultSuccessUrl("/")
                     .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                    .logout()
+                    .logoutSuccessUrl("/")
+                    .deleteCookies("JSESSIONID")
+                    .permitAll()
+                .and()
+                    .csrf()
+                    .disable();
     }
+
 }

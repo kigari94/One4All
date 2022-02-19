@@ -9,22 +9,36 @@
     <title>One4All</title>
 </head>
 <body>
-<div class="menuBar">
-    <ul>
-        <li class="active"><a href="/"><i class="fas fa-home"></i>Home</a></li>
-        <li><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-        <li><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
-        <li><a href="#"><i class="fas fa-users"></i>Über uns</a>
-            <div class="subMenu-aboutUs">
-                <ul>
-                    <li><a href="#">Vision</a></li>
-                    <li><a href="#">Team</a></li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
-    </ul>
-</div>
+<header class="header">
+    <div class="logo">
+        <a href="#">
+            <img th:src="@{/images/PlaceholderLogo.png.}" alt="">
+        </a>
+    </div>
+    <div class="navigation">
+        <input type="checkbox"
+               class="toggle-menu">
+        <div class="hamburger"></div>
+        <ul class="menu">
+            <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
+            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
+                <i class="fas fa-sign-in-alt"></i>Login</a>
+            </li>
+            <li th:if="${session.isEmpty()}"><a id="register" href="/register">
+                <i class="far fa-registered"></i>Registrieren</a>
+            </li>
+            <li th:if="${!session.isEmpty()}"><a id="logout" href="/logout" >
+                <i class="fas fa-sign-out-alt"></i>Log out</a>
+            </li>
+            <li><a href="#"><i class="fas fa-users">
+            </i>Über uns</a>
+            </li>
+            <li><a href="#">
+                <i class="fas fa-phone"></i>Kontakt</a>
+            </li>
+        </ul>
+    </div>
+</header>
 <div th:if="${param.failure}">
     <div id="favErrorMessage" class="alert alert-danger bootstrap d-flex justify-content-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Failure:">
@@ -67,9 +81,11 @@
         <h6 class="col-3">Kontakt:</h6>
         <div class="col-2" th:text="${project.email}"></div>
     </div>
-    <div id="delete" class="row d-flex justify-content-center m-4" th:if="${project.user.username == #request.remoteUser}">
+    <div id="delete" class="d-flex justify-content-center m-4" th:if="${project.user.username == #request.remoteUser}">
         <div class="col-3">
-            <a th:href="@{'/projectDetailPage/delete/' + ${project.projectId}}" type="button" class="btn btn-danger btn-lg">Projekt löschen</a>
+            <a th:href="@{'/projectDetailPage/delete/' + ${project.projectId}}"
+               type="button" class="btn btn-danger btn-lg">Projekt löschen
+            </a>
         </div>
     </div>
 </div>

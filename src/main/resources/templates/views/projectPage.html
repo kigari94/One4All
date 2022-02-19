@@ -9,22 +9,35 @@
     <title>Projektseite</title>
 </head>
 <body>
-<div class="menuBar">
-    <ul>
-        <li class="active"><a href="/"><i class="fas fa-home"></i>Home</a></li>
-        <li><a id="login" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-        <li><a id="register" href="/register"><i class="far fa-registered"></i>Registrieren</a></li>
-        <li><a href="#"><i class="fas fa-users"></i>Über uns</a>
-            <div class="subMenu-aboutUs">
-                <ul>
-                    <li><a href="#">Vision</a></li>
-                    <li><a href="#">Team</a></li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
-    </ul>
-</div>
+<header class="header">
+    <div class="logo">
+        <a href="#">
+            <img th:src="@{/images/PlaceholderLogo.png.}" alt="">
+        </a>
+    </div>
+    <div class="navigation">
+        <input type="checkbox"
+               class="toggle-menu">
+        <div class="hamburger"></div>
+        <ul class="menu">
+            <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
+            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
+                <i class="fas fa-sign-in-alt"></i>Login</a>
+            </li>
+            <li th:if="${session.isEmpty()}"><a id="register" href="/register">
+                <i class="far fa-registered"></i>Registrieren</a>
+            </li>
+            <li th:if="${!session.isEmpty()}"><a id="logout" href="/logout">
+                <i class="fas fa-sign-out-alt">
+                </i>Log out</a>
+            </li>
+            <li><a href="#"><i class="fas fa-users">
+                </i>Über uns</a>
+            </li>
+            <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
+        </ul>
+    </div>
+</header>
 <div class="forms">
     <form th:action="@{/createProject}" th:object="${project}" method="post">
         <input id="title" class="projectCreationVar" th:field="*{title}" th:errorClass="is-invalid" placeholder="Titel"
@@ -34,7 +47,6 @@
         </div>
         <select name="projectType" id="projectType" class="projectCreationVar" th:field="*{projectType}"
                 th:errorClass="is-invalid">
-
             <option value="noInput">--Art des Projekts--</option>
             <option value="ProjektA">Projekt A</option>
             <option value="ProjektB">Projekt B</option>
@@ -61,6 +73,7 @@
         <div id="emailError" th:if="${#fields.hasErrors('email')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{email}"></div>
         </div>
+        <div th:text="${session.sessionId}"> test</div>
         <input id="crew" class="projectCreationVar" placeholder="Gesuchtes Gewerk" th:field="*{crew}"
                th:errorClass="is-invalid" maxlength="100"><br>
         <div id="crewError" th:if="${#fields.hasErrors('crew')}">
@@ -68,7 +81,7 @@
         </div>
         <input type="submit" id="submitProject" value="Projekt erstellen">
         <a href="/">
-            <input type="button" id="dontSubmitProject" onclick="/" value="    Abbrechen    " >
+            <input type="button" id="dontSubmitProject" onclick="/" value="    Abbrechen    ">
         </a>
     </form>
 </div>
