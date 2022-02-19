@@ -22,8 +22,6 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    private PasswordValidator passwordValidator;
-
     @ModelAttribute("user")
     public User user() {
         return new User();
@@ -46,26 +44,30 @@ public class RegistrationController {
         // Check duplicate Username before registration
         if (user.getUsername() != null) {
             if (userService.findUserByUsername(user.getUsername())) {
-                result.addError(new FieldError("user", "username", "Der Username wird bereits verwendet. Bitte gib einen neuen Usernamen ein."));
+                result.addError(new FieldError("user", "username",
+                        "Der Username wird bereits verwendet. Bitte gib einen neuen Usernamen ein."));
             }
         }
 
         // Validating password match
         if (user.getPassword() != null && user.getConfirmPassword() != null) {
             if (!user.getPassword().equals(user.getConfirmPassword())) {
-                result.addError(new FieldError("user", "confirmPassword", "Bitte gib dein Passwort erneut an."));
+                result.addError(new FieldError("user", "confirmPassword",
+                        "Bitte gib dein Passwort erneut an."));
             }
         }
         // Validating password requirements
-        if (!passwordValidator.isValid(user.getPassword())) {
+        if (!PasswordValidator.isValid(user.getPassword())) {
             result.addError(new FieldError("user", "password",
-                    "Das Passwort sollte mindestens eine Zahl, einen Klein- und einen Großbuchstaben enthalten."));
+                    "Das Passwort sollte mindestens eine Zahl, " +
+                            "einen Klein- und einen Großbuchstaben enthalten."));
         }
         // Validating field values
         if (result.hasErrors()) {
             return "views/registration";
         }
 
+        // saving the user
         userService.saveUser(user);
         return "redirect:/?success";
 

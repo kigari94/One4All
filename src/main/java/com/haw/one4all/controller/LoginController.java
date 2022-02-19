@@ -1,6 +1,5 @@
 package com.haw.one4all.controller;
 
-
 import com.haw.one4all.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -12,9 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-
-    @Autowired
-    private UserService userService;
 
     @GetMapping("/login")
     public String showLogin() {

@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface ProjectRepository extends JpaRepository<Project, Long> {
 
-    // required Methods save() and findAll() inherited form JPARepository
-    // defining method findById with datatype Project
+    /* required Methods save() and findAll() inherited form JPARepository
+       defining method findById with datatype Project */
+
     Project findById(long id);
 
     List<Project> findAllByProjectType(String projectType);
