@@ -28,6 +28,32 @@ public class ProjectDetailPageController {
         return "views/projectDetailPage";
     }
 
+    // add a project to favorites
+    @GetMapping("/projectDetailPage/favorite/{id}")
+    public String favoriteProject(@PathVariable("id") int projectId) {
+
+    // Getting user data
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    String authUser = SecurityContextHolder.getContext().getAuthentication().getName();
+    Project project = projectService.findProjectById(projectId);
+
+        // display an error banner if a not logged in user tries to use the "favorite feature"
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "redirect:/projectDetailPage/{id}/?failure";
+    }
+
+        // add user to list of favorites IF they are NOT already in the list
+        if (!projectService.isFavorized(project, authUser)) {
+            projectService.addUserFavorite(project, authUser);
+        } else {
+            // remove the user IF he IS already in the list
+            projectService.deleteUserFavorite(project, authUser);
+        }
+
+        return "redirect:/projectDetailPage/{id}";
+    }
+
+    // delete a project
     @GetMapping("/projectDetailPage/delete/{id}")
     public String deleteProject(@PathVariable("id") int projectId) {
         // Getting user data

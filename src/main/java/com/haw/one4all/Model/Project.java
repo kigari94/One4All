@@ -3,6 +3,8 @@ package com.haw.one4all.Model;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -34,6 +36,9 @@ public class Project {
 
     @Column(nullable = false, length = 32)
     private String crew;
+
+    @Column(nullable = true, unique = false)
+    private ArrayList<String> usersFavorite = new ArrayList<String>();
 
     @ManyToOne
     @JoinColumn(name = "username", nullable=false)
@@ -94,4 +99,11 @@ public class Project {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public ArrayList<String> getUsersFavorite() { return usersFavorite; }
+
+    public void setUsersFavorite(ArrayList<String> usersFavorite) { this.usersFavorite = usersFavorite; }
+
+    // add a single user to the list of users that favorized the project
+    public void addUsersFavorite(String username) { this.usersFavorite.add(username); }
 }

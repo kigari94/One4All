@@ -39,9 +39,29 @@
         </ul>
     </div>
 </header>
+<div th:if="${param.failure}">
+    <div id="favErrorMessage" class="alert alert-danger bootstrap d-flex justify-content-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Failure:">
+            <use xlink:href="#check-circle-fill"/>
+        </svg>
+        <div>
+            Bitte logge dich ein, um dieses Feature zu verwenden!
+        </div>
+    </div>
+</div>
 <div id="contentContainer" class="container col-xxl-8 px-4 py-5">
     <div id="tile" class="row-cols-1">
         <h1 class="display-5 fw-bold lh-1 mb-3" th:text="${project.title}"></h1>
+    </div>
+    <div th:if="${!project.usersFavorite.contains(#request.remoteUser)}">
+        <a th:href="@{'/projectDetailPage/' + 'favorite/' + ${project.projectId}}">
+            <image class="fav" th:src="@{/images/favorite_not_clicked.png}"></image>
+        </a>
+    </div>
+    <div th:if="${project.usersFavorite.contains(#request.remoteUser)}">
+        <a th:href="@{'/projectDetailPage/' + 'favorite/' + ${project.projectId}}">
+            <image class="fav" th:src="@{/images/favorite__clicked.png}"></image>
+        </a>
     </div>
     <div id="creator" class="row-cols-1">
         <h3 class="text-muted" th:text="'erstellt von ' + ${project.user.username}"></h3>

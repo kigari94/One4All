@@ -25,7 +25,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Project> projects;
 
-
     public String getUsername() {
         return username;
     }
@@ -45,9 +44,4 @@ public class User {
     public String getConfirmPassword() {
         return confirmPassword;
     }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
 }
