@@ -38,8 +38,8 @@ describe('homepage tests', () => {
 
     it('stage slider is available', () => {
 
-       cy.get('#one4AllCarousel')
-           .should('be.visible')
+        cy.get('#one4AllCarousel')
+            .should('be.visible')
         cy.get('.carousel-control-prev')
             .should('be.visible')
         cy.get('.carousel-control-next')
@@ -48,8 +48,8 @@ describe('homepage tests', () => {
 
     it('filter navigation is available', () => {
 
-       cy.get('body > nav')
-           .should('be.visible')
+        cy.get('body > nav')
+            .should('be.visible')
         cy.get('#navbarSupportedContent > ul > li > ul')
             .as('filterSelection')
             .should('not.be.visible')
