@@ -128,8 +128,10 @@
                         <li><a class="dropdown-item" th:href="@{/Wahlpflicht}">Wahlpflicht</a></li>
                     </ul>
                 </li>
-                <div class="d-flex">
-                    <a th:href="@{/}" id="resetFilter" class="btn btn-outline-primary me-5" role="button">Filter zurücksetzen</a>
+                <div th:if="${#httpServletRequest.requestURI != '/'}">
+                    <div class="d-flex">
+                        <a th:href="@{/}" class="btn btn-outline-primary me-auto" role="button">Filter zurücksetzen</a>
+                    </div>
                 </div>
             </ul>
             <div class="d-flex">
