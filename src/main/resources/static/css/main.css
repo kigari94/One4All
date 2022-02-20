@@ -326,7 +326,6 @@ p.errorText {
 .errorButton {
     display: block;
     margin: auto;
-    width: 15%;
     padding: 12px 28px;
     background-color: rgba(100, 149, 237, 0.2);
     border: none;
