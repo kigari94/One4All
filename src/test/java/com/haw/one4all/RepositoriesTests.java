@@ -45,16 +45,22 @@ public class RepositoriesTests {
         // Verify user is existing
         assertEquals(existUser.getUsername(), user.getUsername());
 
-    }
-
-    @Test
-    public void testFindUserByUsername() {
         String username = "Max Muster";
-        User user = userRepo.findByUsername(username);
+        User loadedUser = userRepo.findByUsername(username);
 
         // Verify user is not null
-        assertThat(user).isNotNull();
+        assertThat(loadedUser).isNotNull();
+
     }
+
+//    @Test
+//    public void testFindUserByUsername() {
+//        String username = "Max Muster";
+//        User user = userRepo.findByUsername(username);
+//
+//        // Verify user is not null
+//        assertThat(user).isNotNull();
+//    }
 
     @Test
     public void testCreateProject() {
@@ -88,14 +94,20 @@ public class RepositoriesTests {
         assertEquals(existProject.getEmail(), project.getEmail());
         assertEquals(existProject.getUser().getUsername(), project.getUser().getUsername());
         assertEquals(existProject.getUsersFavorite(), project.getUsersFavorite());
-    }
 
-    @Test
-    public void testFindProjectById() {
         Long id = 1L;
-        Optional<Project> project = projectRepo.findById(id);
+        Optional<Project> loadedProject = projectRepo.findById(id);
 
         // verify project is not null
-        assertThat(project).isNotNull();
+        assertThat(loadedProject).isNotNull();
     }
+
+//    @Test
+//    public void testFindProjectById() {
+//        Long id = 1L;
+//        Optional<Project> project = projectRepo.findById(id);
+//
+//        // verify project is not null
+//        assertThat(project).isNotNull();
+//    }
 }
