@@ -128,6 +128,11 @@
                         <li><a class="dropdown-item" th:href="@{/Wahlpflicht}">Wahlpflicht</a></li>
                     </ul>
                 </li>
+                <div th:if="${#httpServletRequest.requestURI != '/'}">
+                    <div class="d-flex">
+                        <a th:href="@{/}" class="btn btn-outline-primary me-auto" role="button">Filter zurücksetzen</a>
+                    </div>
+                </div>
             </ul>
             <div class="d-flex">
                 <a th:href="@{/projectPage}" class="btn btn-outline-primary me-5" role="button">Projekt anlegen</a>
