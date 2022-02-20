@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
     <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
@@ -20,7 +20,7 @@
         <ul class="menu">
             <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
             </li>
-            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
+            <li sec:authorize="isAnonymous()"><a id="login" href="/login">
                 <i class="fas fa-sign-in-alt"></i>  Login</a>
             </li>
         </ul>
