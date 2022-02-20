@@ -7,6 +7,25 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrierung</title>
 </head>
+<header class="header">
+    <div class="logo">
+        <a href="">
+            <img th:src="@{/images/PlaceholderLogo.png.}" alt="">
+        </a>
+    </div>
+    <div class="navigation">
+        <input type="checkbox"
+               class="toggle-menu">
+        <div class="hamburger"></div>
+        <ul class="menu">
+            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
+            </li>
+            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
+                <i class="fas fa-sign-in-alt"></i>  Login</a>
+            </li>
+        </ul>
+    </div>
+</header>
 <body>
 <div class="d-flex align-items-center vh-100">
     <div id="registrationForm" class="container-md">
@@ -59,6 +78,11 @@
         </form>
     </div>
 </div>
-
+<div class="footer">
+    <footer>
+        <p><a id="impressum" th:href="@{/impressum}">Impressum</a></p>
+        <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png}" alt="One4All">
+    </footer>
+</div>
 </body>
 </html>
