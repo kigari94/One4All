@@ -20,21 +20,18 @@
                class="toggle-menu">
         <div class="hamburger"></div>
         <ul class="menu">
-            <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
-            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
-                <i class="fas fa-sign-in-alt"></i>Login</a>
+            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
             </li>
-            <li th:if="${session.isEmpty()}"><a id="register" href="/register">
-                <i class="far fa-registered"></i>Registrieren</a>
+            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
+                <i class="fas fa-sign-in-alt"></i>  Login</a>
             </li>
             <li th:if="${!session.isEmpty()}"><a id="logout" href="/logout" >
-                <i class="fas fa-sign-out-alt"></i>Log out</a>
+                <i class="fas fa-sign-out-alt"></i>  Log out</a>
             </li>
-            <li><a href="#"><i class="fas fa-users">
-            </i>Über uns</a>
+            <li th:if="${session.isEmpty()}"><a id="register" href="/register">
+                <i class="far fa-registered"></i>   Registrieren</a>
             </li>
-            <li><a href="#">
-                <i class="fas fa-phone"></i>Kontakt</a>
+            <li><a href="impressum"><i class="fa fa-paragraph"></i>   Impressum</a>
             </li>
         </ul>
     </div>
