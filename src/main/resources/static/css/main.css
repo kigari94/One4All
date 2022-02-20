@@ -320,7 +320,7 @@ p.errorText {
     font-family: Arial, sans-serif;
     font-size: 50px;
     text-align: center;
-    background: rgba(255, 255, 255, .6);
+    background: radial-gradient(ellipse 50% 300px, rgba(100, 149, 237,0.4) 50%, white);
 }
 
 .errorButton {
@@ -328,7 +328,7 @@ p.errorText {
     margin: auto;
     width: 15%;
     padding: 12px 28px;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(100, 149, 237, 0.2);
     border: none;
     color: black;
     text-align: center;
