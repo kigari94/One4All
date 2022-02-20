@@ -370,3 +370,7 @@ span.psw {
     width: 30px;
     float: right;
 }
+
+#resetFilter{
+    margin-left: 20px;
+}
