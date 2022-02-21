@@ -25,8 +25,8 @@ public class Project {
     private String projectType;
 
     @NotEmpty(message = "Bitte gib eine Beschreibung an.")
-    @Size(min = 10, max = 512)
-    @Column(nullable = false, length = 512)
+    @Size(min = 10, max = 1024)
+    @Column(nullable = false, length = 1024)
     private String description;
 
     @NotEmpty(message = "Bitte gib eine Kontaktmöglichkeit an.")
