@@ -11,8 +11,8 @@
 <body>
 <header class="header">
     <div class="logo">
-        <a href="#">
-            <img th:src="@{/images/PlaceholderLogo.png.}" alt="">
+        <a href="/">
+            <img id="footerLogo2" th:src="@{/images/PlaceholderLogo.png.}" alt="">
         </a>
     </div>
     <div class="navigation">
@@ -20,9 +20,9 @@
                class="toggle-menu">
         <div class="hamburger"></div>
         <ul class="menu">
-            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
+            <li><a href="/"><i class="fas fa-home"></i>   Home</a></li>
             </li>
-            <li sec:authorize="isAnonymous()"><a id="login" href="/login">
+            <li sec:authorize="isAnonymous()"><a id="loginNav" href="/login">
                 <i class="fas fa-sign-in-alt"></i>  Login</a>
             </li>
             <li sec:authorize="isAuthenticated()"><a id="logout" href="/logout" >
@@ -61,7 +61,7 @@
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{projectType}"></div>
         </div>
         <textarea rows="10" cols="60" id="description" class="projectCreationVar" th:field="*{description}"
-                  th:errorClass="is-invalid" placeholder="Projektbeschreibung" maxlength="300"></textarea><br>
+                  th:errorClass="is-invalid" placeholder="Projektbeschreibung" maxlength="1024"></textarea><br>
         <div id="descriptionError" th:if="${#fields.hasErrors('description')}">
             <div class="alert alert-danger d-flex align-items-center" th:errors="*{description}"></div>
         </div>

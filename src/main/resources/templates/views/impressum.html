@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
+    <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum</title>
 </head>
 <body>
 <header class="header">
@@ -15,52 +20,47 @@
                class="toggle-menu">
         <div class="hamburger"></div>
         <ul class="menu">
-            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
+            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
             </li>
-            <li sec:authorize="isAnonymous()"><a id="login" href="/login">
-                <i class="fas fa-sign-in-alt"></i>  Login</a>
+            <li sec:authorize="isAnonymous()"><a id="loginNav" href="/login">
+                <i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
-            <li sec:authorize="isAuthenticated()"><a id="logout" href="/logout" >
-                <i class="fas fa-sign-out-alt"></i>  Log out</a>
+            <li sec:authorize="isAuthenticated()"><a id="logout" href="/logout">
+                <i class="fas fa-sign-out-alt"></i> Log out</a>
             </li>
             <li sec:authorize="isAnonymous()"><a id="register" href="/register">
-                <i class="far fa-registered"></i>   Registrieren</a>
+                <i class="far fa-registered"></i> Registrieren</a>
+            </li>
+            <li><a href="impressum"><i class="fa fa-paragraph"></i> Impressum</a>
             </li>
         </ul>
     </div>
 </header>
+    <div class="d-flex flex-column m-4">
+        <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+        <p>HAW<br />
+            Finkenau 35<br />
+            Geb&auml;ude 44<br />
+            22081 Hamburg</p>
 
-<head>
-    <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
-    <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
-    <link th:href="@{/css/main.css}" rel="stylesheet">
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>Impressum</h1>
-</head>
-<body>
-    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-    <p>HAW<br />
-        Finkenau 35<br />
-        Geb&auml;ude 44<br />
-        22081 Hamburg</p>
+        <p><strong>Vertreten durch:</strong><br />
+            Karim Malik, Stefan Kulow<br />
+            Ugur Aslan, Ümit Baycuman, Nargis Hossainy</p> <br>
 
-    <p><strong>Vertreten durch:</strong><br />
-        Karim Malik, Stefan Kulow<br />
-        Ugur Aslan, Ümit Baycuman, Nargis Hossainy</p>
+        <h2>Kontakt</h2>
+        <p>Telefon: +49 (0) 123 44 55 66<br />
+            Telefax: +49 (0) 123 44 55 99<br />
+            E-Mail: mustermann@One4All.de</p><br>
 
-    <h2>Kontakt</h2>
-    <p>Telefon: +49 (0) 123 44 55 66<br />
-        Telefax: +49 (0) 123 44 55 99<br />
-        E-Mail: mustermann@One4All.de</p>
+        <h2>Umsatzsteuer-ID</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br /><br>
+            DE999999999</p>
 
-    <h2>Umsatzsteuer-ID</h2>
-    <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
-        DE999999999</p>
-
-    <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
-        vor einer Verbraucherschlichtungsstelle teilzunehmen.
-    </p>
+        <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren
+            vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p><br>
+    </div>
     <div class="footer">
         <footer>
             <a href="/">
