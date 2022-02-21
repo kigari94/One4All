@@ -11,7 +11,7 @@
 <header class="header">
     <div class="logo">
         <a href="/">
-            <img id="footerLogo2" th:src="@{/images/PlaceholderLogo.png.}" alt="">
+            <img id="footerLogo2" th:src="@{/images/PlaceholderLogo.png}" alt="">
         </a>
     </div>
     <div class="navigation">
@@ -19,7 +19,7 @@
                class="toggle-menu">
         <div class="hamburger"></div>
         <ul class="menu">
-            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
+            <li><a href="/"><i class="fas fa-home"></i>   Home</a></li>
             </li>
             <li sec:authorize="isAnonymous()"><a id="login" href="/login">
                 <i class="fas fa-sign-in-alt"></i>  Login</a>
