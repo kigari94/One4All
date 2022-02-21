@@ -23,7 +23,7 @@
         <ul class="menu">
             <li><a href="/home"><i class="fas fa-home"></i> Home</a></li>
             </li>
-            <li sec:authorize="isAnonymous()"><a id="login" href="/login">
+            <li sec:authorize="isAnonymous()"><a id="loginNav" href="/login">
                 <i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
             <li sec:authorize="isAuthenticated()"><a id="logout" href="/logout">
@@ -173,7 +173,7 @@
     <footer>
         <p><a id="impressum" th:href="@{/impressum}">Impressum</a></p>
         <a href="/">
-            <img id="footerLogo" th:src="@{/images/PlaceholderLogo.png.}" alt="One4All">
+            <img class="me-auto" id="footerLogo" th:src="@{/images/PlaceholderLogo.png.}" alt="One4All">
         </a>
     </footer>
 </div>
@@ -182,7 +182,7 @@
     $(".col").slice(0, 12).show();
 
     function loadmore() {
-        $(".col:hidden").slice(0, 3).show();
+        $(".col:hidden").slice(0, 12).show();
         if ($(".col:hidden").length == 0) {
             $("#loadMore").fadeOut();
         }
