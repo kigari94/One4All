@@ -1,7 +1,8 @@
+/* Set body color */
 body {
     background: rgb(255, 255, 255);
 }
-
+/* Set header */
 .header {
     position: relative;
     width: 100%;
@@ -21,7 +22,7 @@ body {
     display: block;
     width: 20%;
 }
-
+/* Set navigation and */
 .navigation {
     display: flex;
     justify-content: space-between;
@@ -51,13 +52,13 @@ body {
     line-height: 1;
     transition: 0.3s;
 }
-
+/* Hover menu bar */
 .menu li a:hover {
     box-shadow: 0 -5px 0px rgb(255, 255, 255) inset,
     500px 0 0 rgba(255, 255, 255, 0.03) inset;
     padding: 35px 25px 45px 25px;
 }
-
+/* Set burger menu */
 .hamburger {
     position: relative;
     width: 30px;
@@ -79,7 +80,7 @@ body {
     border-radius: 10px;
     transition: 0.03s;
 }
-
+/* Burger menu when scaling the browser */
 .hamburger:before {
     top: -10px;
     width: 20px;
@@ -89,7 +90,7 @@ body {
     top: 10px;
     width: 25x;
 }
-
+/* Set toggle menu */
 .toggle-menu {
     position: absolute;
     width: 30px;
@@ -98,31 +99,32 @@ body {
     cursor: pointer;
     opacity: 0;
 }
-
+/* Hides toggle menu until browser scaling */
 .hamburger,
 .toggle-menu {
     display: none;
 }
-
+/* Styling the hamburger button */
 .navigation input:checked ~ .hamburger {
     background: transparent;
 }
-
+/* Rotating button after clicking  */
 .navigation input:checked ~ .hamburger:before {
     top: 0;
     transform: rotate(-45deg);
     width: 30px;
 }
-
+/* Rotating button button back after clicking */
 .navigation input:checked ~ .hamburger:after {
     top: 0;
     transform: rotate(45deg);
     width: 30px;
 }
+/* Display the burger menu from the right */
 .navigation input:checked ~ .menu {
     right: 0;
 }
-
+/* Set, adjust and hover the burger menu */
 @media screen and (max-width: 990px) {
     .hamburger,
     .toggle-menu {
@@ -153,7 +155,7 @@ body {
        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
     }
 }
-
+/* Image size adjustment for the carousel */
 .carousel-item img {
     object-fit: cover;
     object-position: center;
@@ -162,7 +164,7 @@ body {
     -webkit-background-size: cover;
     background-size: cover;
 }
-
+/* Put dark veil over the carousel to read better */
 .carousel-item:before {
     content: "";
     display: block;
@@ -174,18 +176,18 @@ body {
     background: #000;
     opacity: 0.4;
 }
-
+/* Raise text in carousel */
 .carousel-caption {
     bottom: 75px;
     padding-left: 100px;
     padding-right: 100px;
 }
-
+/* Increase headline size */
 .carousel-caption h5 {
     font-size: 100px;
     font-weight: 250;
 }
-
+/* Increase text size under the headline */
 .carousel-caption p {
     font-size: 18px;
     top: 2rem;
