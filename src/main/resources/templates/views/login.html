@@ -19,13 +19,12 @@
             <div id="passwordError" th:if="${param.error}">
                 <div class="alert alert-danger d-flex align-items-center">Ungültige Anmeldedaten.</div>
             </div>
-            <button class="btn btn-info mt-3" type="submit">Anmelden</button>
+            <button id="login" class="btn btn-info mt-3" type="submit">Anmelden</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
+
             <div class="container">
                 <button type="button" onclick="window.location.href = 'http://localhost:8080/';"
-                        class="cancelbtn btn-outline-info">Abbrechen
+                        class="cancelbtn" >Abbrechen
                 </button>
             </div>
         </form>
