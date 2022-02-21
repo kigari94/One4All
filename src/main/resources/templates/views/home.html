@@ -9,6 +9,7 @@
     <title>One4All</title>
 </head>
 <body>
+<a id="top"></a>
 <header class="header">
     <div class="logo">
         <a href="/">
@@ -140,7 +141,6 @@
     </div>
 </nav>
 <div id="contentContainer" class="m-5">
-    <a id="top"></a>
     <div class="d-flex justify-content-center" th:if="${listProjects.empty}">
         <h5>Es sind noch keine Projekte vorhanden.</h5>
     </div>
@@ -162,7 +162,7 @@
     <div class="row d-flex justify-content-center" th:if="${listProjects.size > 12}">
         <button id="loadMore" class="btn btn-outline-primary col-4 mt-5" onclick="loadmore()">Mehr anzeigen</button>
     </div>
-    <div class="float-end mt-5">
+    <div class="float-end">
         <a href="#top">
             <img th:src="@{/images/arrow-up-circle.svg}" alt="upArrow" class="upIcon"/>
         </a>

@@ -28,6 +28,12 @@ public class HomePageController {
         return "views/home";
     }
 
+    @GetMapping("/#top")
+    public String showHomeTop() {
+        // returning home scrolled to top
+       return "views/home" + "/#top";
+    }
+
     @GetMapping("/{type}")
     public String showFilteredProjects(@PathVariable("type") String projectType, Model model) {
         // getting user data
