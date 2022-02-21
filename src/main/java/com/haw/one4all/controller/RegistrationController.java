@@ -69,7 +69,7 @@ public class RegistrationController {
 
         // saving the user
         userService.saveUser(user);
-        return "redirect:/?success";
+        return "redirect:/?successRegistration";
 
     }
 }

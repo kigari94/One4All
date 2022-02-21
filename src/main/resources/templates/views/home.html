@@ -32,12 +32,12 @@
             <li sec:authorize="isAnonymous()"><a id="register" href="/register">
                 <i class="far fa-registered"></i>   Registrieren</a>
             </li>
-            <li><a href="impressum"><i class="fa fa-paragraph"></i>   Impressum</a>
+            <li><a href="impressum"><i class="fa fa-paragraph"></i> Impressum</a>
             </li>
         </ul>
     </div>
 </header>
-<div th:if="${param.success}">
+<div th:if="${param.successRegistration}">
     <div id="successMessage" class="alert alert-success bootstrap d-flex justify-content-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
             <use xlink:href="#check-circle-fill"/>
@@ -47,6 +47,19 @@
         </div>
     </div>
 </div>
+
+<div th:if="${param.successProject}">
+    <div id="successMessage" class="alert alert-success bootstrap d-flex justify-content-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill"/>
+        </svg>
+        <div>
+            Projekt erfolgreich veröffentlicht!
+        </div>
+    </div>
+</div>
+
+
 <div id="one4AllCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
     <div class="carousel-indicators">
         <button type="button"

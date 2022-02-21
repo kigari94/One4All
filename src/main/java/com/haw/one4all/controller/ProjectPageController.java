@@ -60,6 +60,6 @@ public class ProjectPageController {
         }
 
         projectService.saveProject(project);
-        return "redirect:/";
+        return "redirect:/?successProject";
     }
 }
