@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" th:href="@{/css/bootstrap-5.0.2-dist/css/bootstrap.min.css}">
     <script th:src="@{/css/bootstrap-5.0.2-dist/js/bootstrap.min.js}"></script>
@@ -20,21 +20,19 @@
                class="toggle-menu">
         <div class="hamburger"></div>
         <ul class="menu">
-            <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
-            <li th:if="${session.isEmpty()}"><a id="login" href="/login">
-                <i class="fas fa-sign-in-alt"></i>Login</a>
+            <li><a href="/home"><i class="fas fa-home"></i>   Home</a></li>
             </li>
-            <li th:if="${session.isEmpty()}"><a id="register" href="/register">
-                <i class="far fa-registered"></i>Registrieren</a>
+            <li sec:authorize="isAnonymous()"><a id="login" href="/login">
+                <i class="fas fa-sign-in-alt"></i>  Login</a>
             </li>
-            <li th:if="${!session.isEmpty()}"><a id="logout" href="/logout">
-                <i class="fas fa-sign-out-alt">
-                </i>Log out</a>
+            <li sec:authorize="isAuthenticated()"><a id="logout" href="/logout" >
+                <i class="fas fa-sign-out-alt"></i>  Log out</a>
             </li>
-            <li><a href="#"><i class="fas fa-users">
-                </i>Über uns</a>
+            <li sec:authorize="isAnonymous()"><a id="register" href="/register">
+                <i class="far fa-registered"></i>   Registrieren</a>
             </li>
-            <li><a href="#"><i class="fas fa-phone"></i>Kontakt</a></li>
+            <li><a href="impressum"><i class="fa fa-paragraph"></i>   Impressum</a>
+            </li>
         </ul>
     </div>
 </header>

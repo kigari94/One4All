@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 100;
 }
 
 .menu {
@@ -120,10 +121,9 @@ body {
 }
 .navigation input:checked ~ .menu {
     right: 0;
-    box-shadow: -20px 0 40px rgb(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 990px) {
+@media (max-width: 400px) {
     .hamburger,
     .toggle-menu {
         display: block;
@@ -152,6 +152,43 @@ body {
        font-size: 24px;
        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset;
     }
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 50vh;
+    overflow: hidden;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-item:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.4;
+}
+
+.carousel-caption {
+    bottom: 75px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.carousel-caption h5 {
+    font-size: 100px;
+    font-weight: 250;
+}
+
+.carousel-caption p {
+    font-size: 18px;
+    top: 2rem;
 }
 
 .hoverDiv {
@@ -198,14 +235,14 @@ body {
     position: absolute;
     margin-left: 25px;
     margin-top: 33px;
-    color: #1b1c1c;
+    color: rgb(255, 255, 255);
     font-family: Arial, sans-serif;
     font-size: 22px;
     text-decoration: none;
 }
 
 #impressum:hover {
-    color: #ced7f2;
+    color: rgb(255, 255, 255);
 }
 
 .login-form {
@@ -329,15 +366,14 @@ p.errorText {
     font-family: Arial, sans-serif;
     font-size: 50px;
     text-align: center;
-    background: rgba(255, 255, 255, .6);
+    background: radial-gradient(ellipse 50% 300px, rgba(100, 149, 237,0.4) 50%, white);
 }
 
 .errorButton {
     display: block;
     margin: auto;
-    width: 15%;
     padding: 12px 28px;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(100, 149, 237, 0.2);
     border: none;
     color: black;
     text-align: center;
@@ -381,3 +417,4 @@ span.psw {
     width: 30px;
     float: right;
 }
+
